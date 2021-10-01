@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 6 - Pass</title>
+</head>
+<body>
+<h1>Pass phrase by Justin Lalumondier</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="pwd">Enter the secret phrase</label>
+    <input type="password" id="pwd" name="pwd" value="Let me in"> <br>
+
+    <label for="checker">Enter a phrase</label>
+    <input type ="text" id="checker" name="checker" autofocus> <br>
+
+    <input type="button" onclick="processPhrase()" value="Check the phrase">
+</form>
+
+
+<p id="result1">Correct amount displayed here</p>
+<p id="result2">Wrong amount displayed here</p>
+
+<script> 
+    correct = 0;
+    wrong = 0;
+
+function processPhrase(){
+    secphrase = document.getElementById("pwd").value
+    checkphrase = document.getElementById("checker").value
+    if (secphrase == checkphrase) {
+        correct++
+        alert("Access allowed")
+    } else {
+        wrong++
+        alert("Access denied")
+    }
+
+    document.getElementById("result1").innerHTML = "Correct amount: "+correct
+    document.getElementById("result2").innerHTML = "Wrong amount: "+wrong
+}
+</script>
+
+</body>
+</html> 
