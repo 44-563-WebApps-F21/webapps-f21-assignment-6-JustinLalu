@@ -8,10 +8,10 @@
 <h2>Getting input</h2>
 
 <form>
-    <label for="form1_num1">What is your age </label>
+    <label for="form1_num1">Enter a base: </label>
     <input type ="number" id="form1_num1" name="form1_num1" value=10> <br>
 
-    <label for="form1_num2">What is your nickname </label>
+    <label for="form1_num2">Enter an exponent: </label>
     <input type ="text" id="form1_num2" name="form1_num2" value=2 > <br>
 
     <input type="button" onclick="powers()" value="Compute">
@@ -19,6 +19,23 @@
 
 
 <p id="result">This text will be replaced </p>
+
+<p id="result2">This text will be replaced </p>
+
+<form>
+    <input type="radio" id="radio_add" name="sa" value="plus" onclick="processRadio(this.value)"> 
+    <label for="form2_plus">+</label> <br>
+
+    <input type="radio" id="radio_sub" name="sa" value="minus" onclick="processRadio(this.value)">
+    <label for="form2_sub">-</label> <br>
+
+    <input type="radio" id="radio_mult" name="sa" value="times" onclick="processRadio(this.value)"> 
+    <label for="form2_mult">*</label> <br>
+
+    <input type="radio" id="radio_div" name="sa" value="divide" onclick="processRadio(this.value)"> 
+    <label for="form2_div">/</label> <br>
+</form>
+
 
 <script> 
 
@@ -37,9 +54,9 @@ function resolveForm (){
 }
 
 function powers(){
-    num1 = document.getElementById("form1_num1").value
-    num2 = document.getElementById("form1_num2").value
-    result = ""
+    let num1 = document.getElementById("form1_num1").value
+    let num2 = document.getElementById("form1_num2").value
+    let result = ""
 
     for (i=1;i<=num2;i++){
         result += Math.pow(num1,i) + " ";
@@ -49,7 +66,31 @@ function powers(){
     
 }
 
+function processRadio(sa){
+    let num1 = document.getElementById("form1_num1").value
+    let num2 = document.getElementById("form1_num2").value
+    let result = 0
 
+    if (sa == "plus"){
+        result = (Number)(num1) + (Number)(num2)
+        document.getElementById("result2").innerHTML = num1+ " + " +num2+ " = " +result
+    }
+
+    else if (sa == "minus"){
+        result = num1 - num2
+        document.getElementById("result2").innerHTML = num1+ " - " +num2+ " = " +result
+    }
+
+    else if (sa == "times"){
+        result = num1 * num2
+        document.getElementById("result2").innerHTML = num1+ " * " +num2+ " = " +result
+    }
+
+    else if (sa == "divide"){
+        result = num1 / num2
+        document.getElementById("result2").innerHTML = num1+ " / " +num2+ " = " +result
+    }
+}
 </script>
 
 </body>
