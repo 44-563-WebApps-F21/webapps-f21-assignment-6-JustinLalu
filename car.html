@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment 6 - Car</title>
+</head>
+<body>
+<h1>Justin Lalumondier orders a car</h1>
+<h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">What is your age </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+
+    <label for="form1_nick">What is your nickname </label>
+    <input type ="text" id="form1_nick" name="form1_nick"> <br>
+
+    <input type="button" onclick="resolveForm()" value="Get values from form">
+</form>
+<br>
+<form>
+    <input type="checkbox" id="cb1_1" name="electric"   
+      value="electric">
+    <label for="cb1_1">Electric </label></br>
+  
+    <input type="checkbox" id="cb1_2" name="ac" 
+       value="ac">
+    <label for="cb1_2">AC</label></br>
+  
+    <input type="checkbox" id="cb1_3" name="gps"   
+       value="gps">
+    <label for="cb1_3">GPS</label></br>
+
+    <input type="button" onclick="orderCar()" value="Order a car">
+  </form>
+
+<p id="result">This text will be replaced </p>
+
+<script> 
+let my_car = {}
+
+function orderCar(){
+    let my_car = {}
+
+    if (document.getElementById("cb1_1").checked){
+        my_car.electric = true
+    } else my_car.electric = false;
+
+    if (document.getElementById("cb1_2").checked){
+        my_car.ac = true
+    } else my_car.ac = false;
+
+    if (document.getElementById("cb1_3").checked){
+        my_car.gps = true
+    } else my_car.gps = false;
+
+    document.getElementById("result").innerHTML = "Electric: " + my_car.electric + " AC: " + my_car.ac + " GPS: " + my_car.gps
+}
+
+function resolveForm (){
+    console.log("Getting form values")
+    age = document.getElementById("form1_age").value
+    nick = document.getElementById("form1_nick").value
+    confirmed = confirm("Are these the values? "+age+" and "+nick)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+
+function resolveCheck() {
+    console.log("Getting input")
+    cheese = document.getElementById("cb1_cheese").checked
+    olives = document.getElementById("cb1_olive").checked
+    onions = document.getElementById("cb1_onion").checked
+    confirmed = confirm("Are these the values? "+cheese+" and "+olives+" and "+onions)
+    
+    out = document.getElementById("result")
+    if(confirmed){
+        out.innerHTML = "Values were confirmed"
+    } else {
+        out.innerHTML = "Values were not confirmed"
+    }
+}
+</script>
+
+</body>
+</html> 
