@@ -65,21 +65,6 @@ function updateCar(){
 
     document.getElementById("result").innerHTML = "Electric: " + my_car.electric + " AC: " + my_car.ac + " GPS: " + my_car.gps + " Color: " + my_car.color + " Value: " + my_car.value
 }
-
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-
 </script>
 
 </body>
